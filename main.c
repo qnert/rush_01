@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:25:02 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/12 12:54:07 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/12 13:54:34 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int	main(int argc, char **argv)
 		if (check_input(input) == -1)
 			printf("Wrong\n");
 	}
+	else
+		printf("Wrong amount of arguments\n");
 	return (0);
 }
