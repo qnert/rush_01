@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:25:02 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/12 14:20:10 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/13 16:44:51 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,30 @@
 
 int	main(int argc, char **argv)
 {
-	char	**input;
+	int	clues[16];
+	int	i;
+	int	j;
 
-	input = NULL;
+	i = 0;
+	j = 0;
 	if (argc == 2)
 	{
-		input = ft_split(argv[1], ' ');
-		if (check_input(input) == 0)
+		if (ft_strlen(argv[1]) != 31)
+			return (write(2, "Error\n", 6), -1);
+		if (check_type(argv[1]) == 0)
+			return (write(2, "Error\n", 6), -1);
+		while (j < 16)
 		{
-			write(2, "Your input is incorrect!\n", 25);
-			return (-1);
+			clues[j] = ft_atoi(&argv[1][i]);
+			i = i + 2;
+			j++;
 		}
-		free_matrix(input);
+		i = 0;
+		while (i < 16)
+		{
+			printf("%d ", clues[i]);
+			i++;
+		}
 	}
 	else
 		printf("Wrong amount of arguments\n");

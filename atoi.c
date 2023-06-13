@@ -6,24 +6,11 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:46:39 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/12 14:20:54 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/13 16:15:12 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush_01.h"
-
-void	free_matrix(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while (arr[i] != NULL)
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-}
 
 int	ft_atoi(const char *str)
 {
@@ -49,33 +36,4 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (res * sign);
-}
-
-void	ft_bzero(void *dst, size_t n)
-{
-	unsigned char	*ptr_dst;
-	unsigned int	i;
-
-	ptr_dst = (unsigned char *) dst;
-	i = 0;
-	while (i < n)
-	{
-		ptr_dst[i] = '\0';
-		i++;
-	}
-}
-
-void	*ft_calloc(size_t nitems, size_t size)
-{
-	void			*ptr;
-	size_t			protect;
-
-	protect = nitems * size;
-	if ((size != 0) && (protect / size != nitems))
-		return (NULL);
-	ptr = malloc(nitems * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, nitems * size);
-	return (ptr);
 }
