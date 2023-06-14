@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:25:02 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/14 14:35:14 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/14 14:54:38 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,20 @@ void	ft_print_board(int board[4][4])
 	}
 }
 
+int	check_col_row(int board[4][4], int nb, int row, int col)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (board[i][col] == nb || board[row][i] == nb)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	int	board[4][4];
@@ -101,7 +115,8 @@ int	main(int argc, char **argv)
 			return (write(2, "Error\n", 6), -1);
 		ft_fill_clues(argv, clues);
 		ft_fill_board(board);
-		ft_print_board(board);
+		if (solve_it(board, clues) == 1)
+			ft_print_board(board);
 	}
 	else
 		printf("Wrong amount of arguments\n");

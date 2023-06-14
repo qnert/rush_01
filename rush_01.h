@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:37:06 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/14 11:40:30 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/14 14:56:23 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@
 # include <stddef.h>
 # include <stdio.h>
 
-char	**ft_split(char const *s, char c);
-void	free_matrix(char **arr);
 int		ft_atoi(const char *str);
-void	*ft_calloc(size_t nitems, size_t size);
 int		ft_strlen(char *str);
 int		check_type(char *input);
 void	ft_fill(char **argv, int **board, int *clues);
+int		check_col_row(int board[4][4], int nb, int row, int col);
+int		solve_it(int board[4][4], int clues[16]);
 
 #endif
