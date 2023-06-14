@@ -6,38 +6,102 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:25:02 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/13 16:44:51 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/14 14:35:14 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush_01.h"
 
-int	main(int argc, char **argv)
+void	ft_fill_clues(char **argv, int *clues)
 {
-	int	clues[16];
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
+	while (i < 4)
+	{
+		clues[i] = ft_atoi(&argv[1][j]);
+		j = j + 2;
+		i++;
+	}
+	i = 4;
+	j = 24;
+	while (i < 8)
+	{
+		clues[i] = ft_atoi(&argv[1][j]);
+		j = j + 2;
+		i++;
+	}
+	i = 8;
+	j = 8;
+	while (i < 12)
+	{
+		clues[i] = ft_atoi(&argv[1][j]);
+		j = j + 2;
+		i++;
+	}
+	i = 12;
+	j = 16;
+	while (i < 16)
+	{
+		clues[i] = ft_atoi(&argv[1][j]);
+		j = j + 2;
+		i++;
+	}
+}
+
+void	ft_fill_board(int board[4][4])
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			board[i][j] = 0;
+			j++;
+		}
+		i++;
+	}
+}
+
+void	ft_print_board(int board[4][4])
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			printf("%d  ", board[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	int	board[4][4];
+	int	clues[16];
+
 	if (argc == 2)
 	{
 		if (ft_strlen(argv[1]) != 31)
 			return (write(2, "Error\n", 6), -1);
 		if (check_type(argv[1]) == 0)
 			return (write(2, "Error\n", 6), -1);
-		while (j < 16)
-		{
-			clues[j] = ft_atoi(&argv[1][i]);
-			i = i + 2;
-			j++;
-		}
-		i = 0;
-		while (i < 16)
-		{
-			printf("%d ", clues[i]);
-			i++;
-		}
+		ft_fill_clues(argv, clues);
+		ft_fill_board(board);
+		ft_print_board(board);
 	}
 	else
 		printf("Wrong amount of arguments\n");
