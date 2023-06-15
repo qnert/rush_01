@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:25:02 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/14 14:54:38 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/15 14:22:56 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,19 @@ void	ft_fill_clues(char **argv, int *clues)
 		i++;
 	}
 	i = 8;
-	j = 8;
+	j = 14;
 	while (i < 12)
 	{
 		clues[i] = ft_atoi(&argv[1][j]);
-		j = j + 2;
+		j = j - 2;
 		i++;
 	}
 	i = 12;
-	j = 16;
+	j = 22;
 	while (i < 16)
 	{
 		clues[i] = ft_atoi(&argv[1][j]);
-		j = j + 2;
+		j = j - 2;
 		i++;
 	}
 }
