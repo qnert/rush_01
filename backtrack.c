@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:41:57 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/16 11:50:18 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/16 11:55:23 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int	is_solved(int board[4][4], int clues[16])
 	i = 3;
 	while (i >= 0)
 	{
-		if (count_skyscraper(board[0][i], board[0][i], board[0][i], board[0][i]) != clues[12 + i])
+		if (count_skyscraper(board[3][i], board[2][i], board[1][i], board[0][i]) != clues[4 + (i * -1)])
 			return (0);
-		if (count_skyscraper(board[i][0], board[i][0], board[i][0], board[i][0]) != clues[4 + i])
+		if (count_skyscraper(board[i][3], board[i][2], board[i][1], board[i][0]) != clues[12 + (i * -1)])
 			return (0);
 		i--;
 	}
