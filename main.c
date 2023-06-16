@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:25:02 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/16 11:49:33 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/16 14:36:33 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ void	ft_print_board(int board[4][4])
 		j = 0;
 		while (j < 4)
 		{
-			printf("%d  ", board[i][j]);
+			printf("%d", board[i][j]);
+			if (j != 3)
+				printf(" ");
 			j++;
 		}
 		printf("\n");
@@ -97,6 +99,6 @@ int	main(int argc, char **argv)
 			write(1, "Error\n", 6);
 	}
 	else
-		printf("Wrong amount of arguments\n");
+		write(1, "Error\n", 6);
 	return (0);
 }

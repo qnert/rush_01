@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:31:17 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/14 11:54:43 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/16 14:20:15 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ int	check_type(char *input)
 	while (input[i] != '\0' && i <= 30)
 	{
 		if (input[i] < '1' || input[i] > '4')
+			return (0);
+		if (input[i + 1] != '\0' && input[i + 1] != 32)
 			return (0);
 		i = i + 2;
 	}
