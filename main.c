@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:25:02 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/15 14:22:56 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/16 11:49:33 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,10 @@ void	ft_fill_clues(char **argv, int *clues)
 
 	i = 0;
 	j = 0;
-	while (i < 4)
-	{
-		clues[i] = ft_atoi(&argv[1][j]);
-		j = j + 2;
-		i++;
-	}
-	i = 4;
-	j = 24;
-	while (i < 8)
-	{
-		clues[i] = ft_atoi(&argv[1][j]);
-		j = j + 2;
-		i++;
-	}
-	i = 8;
-	j = 14;
-	while (i < 12)
-	{
-		clues[i] = ft_atoi(&argv[1][j]);
-		j = j - 2;
-		i++;
-	}
-	i = 12;
-	j = 22;
 	while (i < 16)
 	{
 		clues[i] = ft_atoi(&argv[1][j]);
-		j = j - 2;
+		j = j + 2;
 		i++;
 	}
 }
@@ -117,6 +93,8 @@ int	main(int argc, char **argv)
 		ft_fill_board(board);
 		if (solve_it(board, clues) == 1)
 			ft_print_board(board);
+		else
+			write(1, "Error\n", 6);
 	}
 	else
 		printf("Wrong amount of arguments\n");
