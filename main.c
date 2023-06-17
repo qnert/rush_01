@@ -6,7 +6,7 @@
 /*   By: skunert <skunert@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 12:25:02 by skunert           #+#    #+#             */
-/*   Updated: 2023/06/16 14:36:33 by skunert          ###   ########.fr       */
+/*   Updated: 2023/06/17 15:27:23 by skunert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		if (ft_strlen(argv[1]) != 31)
-			return (write(2, "Error\n", 6), -1);
+			return (write(1, "Error\n", 6), -1);
 		if (check_type(argv[1]) == 0)
-			return (write(2, "Error\n", 6), -1);
+			return (write(1, "Error\n", 6), -1);
 		ft_fill_clues(argv, clues);
 		ft_fill_board(board);
 		if (solve_it(board, clues) == 1)
